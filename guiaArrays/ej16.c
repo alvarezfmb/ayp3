@@ -22,7 +22,7 @@ void reemplazar(char* parrafoNuevo, char* parrafoOriginal, char* reemplazo, char
   while (token) {
     if (!strcmp(token, aReemplazar)) {
       strcat(parrafoNuevo, reemplazo);
-      strcat(parrafoNuevo, " ");
+      strcat(parrafoNuevo, " "); // agrego espacio en blanco despues de cada palabra
     } else {
       strcat(parrafoNuevo, token);
       strcat(parrafoNuevo, " ");
@@ -46,10 +46,3 @@ int main(int argc, char const *argv[]) {
   printf("%s\n", nuevo);
   return 0;
 }
-
-
-
-
-
-
-
