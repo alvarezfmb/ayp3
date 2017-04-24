@@ -1,10 +1,9 @@
 
-# Created by https://www.gitignore.io/api/c,macos,eclipse,sublimetext
+# Created by https://www.gitignore.io/api/c,cmake,macos,eclipse,sublimetext
 
 ### C ###
 # Prerequisites
 *.d
-*.~
 
 # Object files
 *.o
@@ -50,14 +49,28 @@
 # Kernel Module Compile Results
 *.mod*
 *.cmd
+.tmp_versions/
 modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
 
+### CMake ###
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+
 ### Eclipse ###
 
 .metadata
+Debug
+src/Debug
 bin/
 tmp/
 *.tmp
@@ -68,9 +81,6 @@ local.properties
 .settings/
 .loadpath
 .recommenders
-
-# Eclipse Core
-.project
 
 # External tool builders
 .externalToolBuilders/
@@ -83,9 +93,6 @@ local.properties
 
 # CDT-specific (C/C++ Development Tooling)
 .cproject
-
-# JDT-specific (Eclipse Java Development Tools)
-.classpath
 
 # Java annotation processor (APT)
 .factorypath
@@ -120,7 +127,6 @@ local.properties
 
 # Icon must end with two \r
 Icon
-
 
 # Thumbnails
 ._*
@@ -173,4 +179,4 @@ bh_unicode_properties.cache
 # https://packagecontrol.io/packages/sublime-github
 GitHub.sublime-settings
 
-# End of https://www.gitignore.io/api/c,macos,eclipse,sublimetext
+# End of https://www.gitignore.io/api/c,cmake,macos,eclipse,sublimetext
