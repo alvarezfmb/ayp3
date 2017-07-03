@@ -1,18 +1,22 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 void concatenar(char* dst, char* arr1, char* arr2, unsigned volA, unsigned volB) {
-  while (volA) {
-    *dst = *arr1;
-    dst++;
-    arr1++;
-    volA--;
-  }
-  while (volB) {
-    *dst = *arr2;
-    dst++;
-    arr2++;
-    volB--;
-  }
+  // while (volA) {
+  //   *dst = *arr1;
+  //   dst++;
+  //   arr1++;
+  //   volA--;
+  // }
+  // while (volB) {
+  //   *dst = *arr2;
+  //   dst++;
+  //   arr2++;
+  //   volB--;
+  // }
+  memcpy(dst, arr1, volA);
+  memcpy(dst + volA, arr2, volB);
 }
 
 int main(int argc, char const *argv[])

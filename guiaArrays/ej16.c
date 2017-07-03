@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+
 
 // Crear un procedimiento que reemplace una palabra por otra en un párrafo.
 
@@ -17,7 +19,22 @@ int contar_apariciones(char* str, char* wrd, unsigned strSize) {
   return count;
 }
 
-void reemplazar(char* parrafoNuevo, char* parrafoOriginal, char* reemplazo, char* aReemplazar) {
+// void reemplazar(char* parrafoNuevo, char* parrafoOriginal, char* reemplazo, char* aReemplazar) {
+//   char* token = strtok(parrafoOriginal, " ");
+//   while (token) {
+//     if (!strcmp(token, aReemplazar)) {
+//       strcat(parrafoNuevo, reemplazo);
+//       strcat(parrafoNuevo, " "); // agrego espacio en blanco despues de cada palabra
+//     } else {
+//       strcat(parrafoNuevo, token);
+//       strcat(parrafoNuevo, " ");
+//     }
+//     token = strtok(NULL, " ");
+//   }
+// }
+
+char* reemplazar(char* parrafoOriginal, char* reemplazo, char* aReemplazar, int aparr) {
+  char* parrafoNuevo = (char*) malloc(strlen(parrafoOriginal) - strlen(aReemplazar)*aparr + strlen(reemplazo)*aparr + 1);
   char* token = strtok(parrafoOriginal, " ");
   while (token) {
     if (!strcmp(token, aReemplazar)) {
@@ -29,6 +46,7 @@ void reemplazar(char* parrafoNuevo, char* parrafoOriginal, char* reemplazo, char
     }
     token = strtok(NULL, " ");
   }
+  return parrafoNuevo;
 }
 
 
@@ -38,11 +56,12 @@ int main(int argc, char const *argv[]) {
   char reemplazo[] = "reemplazo";
 
   int apariciones = contar_apariciones(parrafo, buscada, sizeof(parrafo));
-  char nuevo[strlen(parrafo) - strlen(buscada)*apariciones + strlen(reemplazo)*apariciones];
+  // char nuevo[strlen(parrafo) - strlen(buscada)*apariciones + strlen(reemplazo)*apariciones];
 
-  memset(nuevo, '\0', sizeof(nuevo)); // inicializo en "cero" el string
+  // memset(nuevo, '\0', sizeof(nuevo)); // inicializo en "cero" el string
 
-  reemplazar(nuevo, parrafo, reemplazo, buscada);
+  char* nuevo = reemplazar(parrafo, reemplazo, buscada, apariciones);
   printf("%s\n", nuevo);
+  free(nuevo);
   return 0;
 }
